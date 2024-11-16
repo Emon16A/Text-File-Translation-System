@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>File Translation Service</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Translate Your Text File</h1>
+
+        <!-- Upload Form -->
+        <form id="upload-form" action="/api/upload/" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" id="file-input" required>
+            <select name="language" id="language-select" required>
+                <option value="null">Select language</option>
+            </select>
+            <button type="submit">Upload and Translate</button>
+        </form>
+
+        <!-- Translation Result Section -->
+        <div id="status"></div>
+        <div id="translation-result">
+            <h3>Translated Text:</h3>
+            <p id="translated-text"></p>
+            <button id="download-btn" style="display:none;">Download Translated File</button>
+        </div>
+
+        <!-- History Section -->
+        <h3>Translation History:</h3>
+        <ul id="history-list" class="history-list"></ul>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

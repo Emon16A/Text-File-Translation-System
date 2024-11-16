@@ -1,0 +1,3 @@
+@app.get("/favicon.ico")
+async def favicon():
+    return {"detail": "Favicon not set"}

@@ -1,0 +1,2 @@
+Mon nom est emon
+Pour ajouter une option de téléchargement pour le fichier traduit après la traduction, nous pouvons améliorer à la fois le frontend et le backend.Voici comment vous pouvez le faire:
