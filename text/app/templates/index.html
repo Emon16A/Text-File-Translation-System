@@ -12,11 +12,13 @@
 
         <!-- Upload Form -->
         <form id="upload-form" action="/api/upload/" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" id="file-input" required>
-            <select name="language" id="language-select" required>
-                <option value="null">Select language</option>
-            </select>
-            <button type="submit">Upload and Translate</button>
+            <div id="upload-btn-container">
+                <input type="file" name="file" id="file-input" required>
+                <select name="language" id="language-select" required>
+                    <option value="null">Select language</option>
+                </select>
+                <button type="submit" id="upload-btn">Upload and Translate</button>
+            </div>
         </form>
 
         <!-- Translation Result Section -->
@@ -24,7 +26,9 @@
         <div id="translation-result">
             <h3>Translated Text:</h3>
             <p id="translated-text"></p>
-            <button id="download-btn" style="display:none;">Download Translated File</button>
+            <div id="download-btn-container">
+                <button id="download-btn" style="display:none;">Download Translated File</button>
+            </div>
         </div>
 
         <!-- History Section -->

@@ -1,178 +1,153 @@
-/* Global styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f7fa;
+/* Basic resets */
+* {
     margin: 0;
-    padding: 2px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Light gradient background */
+    padding: 20px;
     color: #333;
 }
 
-/* Container Styles */
-.container {
-    width: 100%;
-    max-width: 500px;
-    background: #ffffff;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-/* Title */
+/* Container styling */
 h1 {
-    margin: 0;
-    font-size: 24px;
+    text-align: center;
     color: #2c3e50;
     margin-bottom: 20px;
-    text-align: center;
 }
 
-/* Upload Form Section */
-#upload-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Add space between elements */
-    margin-bottom: 20px;
+h2 {
+    color: #34495e;
 }
 
-/* File Input and Language Selector */
-input[type="file"],
-select {
+/* Form styling */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+form input[type="file"],
+form select,
+form button {
     width: 100%;
     padding: 10px;
-    font-size: 14px;
-    border: 1px solid #bdc3c7;
+    margin: 10px 0 20px;
+    border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 1rem;
 }
 
-/* File Input Style */
-input[type="file"] {
-    border: 1px solid #bdc3c7;
-    padding: 8px;
-    cursor: pointer;
-}
-
-/* Button styles */
-button {
-    padding: 12px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #3498db;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #2980b9;
-}
-
-/* Translation Result Section */
-#translation-result {
-    margin-top: 30px;
-    font-size: 18px;
-    color: #2c3e50;
-    text-align: left;
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    max-height: 300px;
-    overflow-y: auto;
-    padding-right: 10px;
-}
-
-/* Status Message */
-#status {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #3498db;
+/* Centering the upload button with a gradient background */
+#upload-btn-container {
     text-align: center;
+    margin-top: 20px;
 }
 
-/* Translation History Section */
-.history-list {
+#upload-btn {
+    background: linear-gradient(135deg, #FFB6C1, #87CEFA); /* Light pink to light blue gradient */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for better appearance */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#upload-btn:hover {
+    background: linear-gradient(135deg, #FF69B4, #00BFFF); /* Slightly darker gradient on hover */
+    transform: scale(1.05); /* Button slightly enlarges when hovered */
+}
+
+/* Translated text area */
+#translated-text {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    font-family: "Courier New", Courier, monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-bottom: 20px;
+}
+
+/* History section */
+ul#history-list {
     list-style: none;
-    padding: 10px;
-    margin: 20px 0;
-    color: #7f8c8d;
-    max-height: 200px;
-    overflow-y: auto;
-    border-top: 1px solid #ecf0f1;
-    margin-bottom: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .history-item {
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.history-item div {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #ecf0f1;
 }
 
-.history-item:last-child {
-    border-bottom: none;
-}
-
-.history-item p {
-    margin: 0;
-    color: #2c3e50;
-}
-
-/* Download button for history items */
-.download-history-btn {
-    padding: 8px 15px;
-    font-size: 14px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
+.history-item button {
+    padding: 5px 10px;
+    font-size: 0.9rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    border-radius: 4px;
 }
 
-.download-history-btn:hover {
+.history-item button:hover {
     background-color: #2980b9;
 }
 
-/* Custom Scrollbars */
-#translation-result::-webkit-scrollbar,
-.history-list::-webkit-scrollbar {
-    width: 8px;
+/* Centering the button with a gradient background */
+#download-btn {
+    background: linear-gradient(135deg, #FFB6C1, #87CEFA); /* Light pink to light blue gradient */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    display: none; /* Hide by default */
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for better appearance */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    width: auto;
 }
 
-#translation-result::-webkit-scrollbar-thumb,
-.history-list::-webkit-scrollbar-thumb {
-    background-color: #bdc3c7;
-    border-radius: 4px;
+/* Hover effect for the button */
+#download-btn:hover {
+    background: linear-gradient(135deg, #FF69B4, #00BFFF); /* Slightly darker gradient on hover */
+    transform: scale(1.05); /* Button slightly enlarges when hovered */
 }
 
-#translation-result::-webkit-scrollbar-thumb:hover,
-.history-list::-webkit-scrollbar-thumb:hover {
-    background-color: #95a5a6;
-}
-
-/* Media query for responsiveness */
-@media screen and (max-width: 500px) {
-    .container {
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 20px;
-    }
-
-    button {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    input[type="file"],
-    select {
-        font-size: 12px;
-    }
+/* Ensure the button is centered */
+#download-btn-container {
+    text-align: center;
+    margin-top: 20px;
 }

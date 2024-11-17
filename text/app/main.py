@@ -28,7 +28,6 @@ async def root():
     with open(template_path, "r") as f:
         return f.read()
 
-# Explicitly handle HEAD requests for "/"
 @app.head("/", response_class=HTMLResponse)
 async def head_root():
     return HTMLResponse(status_code=200)
