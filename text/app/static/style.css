@@ -8,7 +8,7 @@
 /* Body styling */
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Light gradient background */
+    background: linear-gradient(135deg, #64ff56, #b0cbf8); /* Light gradient background */
     padding: 20px;
     color: #333;
 }
@@ -52,14 +52,13 @@ form button {
     font-size: 1rem;
 }
 
-/* Centering the upload button with a gradient background */
 #upload-btn-container {
     text-align: center;
     margin-top: 20px;
 }
 
 #upload-btn {
-    background: linear-gradient(135deg, #FFB6C1, #87CEFA); /* Light pink to light blue gradient */
+    background: linear-gradient(135deg,  #FF69B4, #00BFFF); /* Light pink to light blue gradient */
     color: white;
     border: none;
     padding: 15px 30px;
@@ -73,7 +72,7 @@ form button {
 }
 
 #upload-btn:hover {
-    background: linear-gradient(135deg, #FF69B4, #00BFFF); /* Slightly darker gradient on hover */
+    background: linear-gradient(135deg, #f87e91, #5ebdf8); /* Slightly darker gradient on hover */
     transform: scale(1.05); /* Button slightly enlarges when hovered */
 }
 
@@ -125,7 +124,7 @@ ul#history-list {
 
 /* Centering the button with a gradient background */
 #download-btn {
-    background: linear-gradient(135deg, #FFB6C1, #87CEFA); /* Light pink to light blue gradient */
+    background: linear-gradient(135deg, #fc9fe4, #a3d9fa); /* Light pink to light blue gradient */
     color: white;
     border: none;
     padding: 15px 30px;

@@ -6,9 +6,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     const downloadBtn = document.getElementById("download-btn");
 
     // Fetch supported languages
+    let languages = {};
     try {
         const response = await fetch("/api/languages");
-        const languages = await response.json();
+        languages = await response.json();
         for (const [code, name] of Object.entries(languages)) {
             const option = document.createElement("option");
             option.value = code;
@@ -27,8 +28,8 @@ document.addEventListener("DOMContentLoaded", async function () {
             historyList.innerHTML = ""; // Clear old history
 
             history.forEach(item => {
+                const languageName = languages[item.language] || "Unknown Language";
                 const listItem = document.createElement("li");
-                const languageName = item.language || "Unknown Language";
                 listItem.innerHTML = `
                     <div>
                         <p><strong>Translated to ${languageName}:</strong> ${item.translated.substring(0, 50)}...</p>
@@ -78,7 +79,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             const response = await fetch("/api/upload/", { method: "POST", body: formData });
             if (response.ok) {
                 const data = await response.json();
-                // Use 'data.translated' as per the backend response
                 translatedText.innerText = data.translated;
                 downloadBtn.style.display = "block";
                 downloadBtn.addEventListener("click", () => {

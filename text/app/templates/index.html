@@ -8,10 +8,10 @@
 </head>
 <body>
     <div class="container">
-        <h1>Translate Your Text File</h1>
 
         <!-- Upload Form -->
         <form id="upload-form" action="/api/upload/" method="post" enctype="multipart/form-data">
+            <h1>Translate Your Text File</h1>
             <div id="upload-btn-container">
                 <input type="file" name="file" id="file-input" required>
                 <select name="language" id="language-select" required>
@@ -24,7 +24,7 @@
         <!-- Translation Result Section -->
         <div id="status"></div>
         <div id="translation-result">
-            <h3>Translated Text:</h3>
+            <h3 style="text-align: center;">Translated Text:</h3>
             <p id="translated-text"></p>
             <div id="download-btn-container">
                 <button id="download-btn" style="display:none;">Download Translated File</button>
@@ -32,7 +32,7 @@
         </div>
 
         <!-- History Section -->
-        <h3>Translation History:</h3>
+        <h3 style="text-align: center;">Translation History:</h3>
         <ul id="history-list" class="history-list"></ul>
     </div>
 
