@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes import upload, download, history, websocket, languages  # Import the languages router
+from app.routes import upload, download, history, websocket, languages
 import os
 
 app = FastAPI()
@@ -18,7 +18,7 @@ app.include_router(upload.router, prefix="/api/upload")
 app.include_router(download.router, prefix="/api/download")
 app.include_router(history.router, prefix="/api/history")
 app.include_router(websocket.router, prefix="/ws")
-app.include_router(languages.router, prefix="/api")  # Include the languages router
+app.include_router(languages.router, prefix="/api")
 
 @app.get("/", response_class=HTMLResponse)
 async def root():
@@ -28,3 +28,7 @@ async def root():
     with open(template_path, "r") as f:
         return f.read()
 
+# Explicitly handle HEAD requests for "/"
+@app.head("/", response_class=HTMLResponse)
+async def head_root():
+    return HTMLResponse(status_code=200)
