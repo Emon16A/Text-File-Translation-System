@@ -22,6 +22,9 @@ app.include_router(languages.router, prefix="/api")  # Include the languages rou
 
 @app.get("/", response_class=HTMLResponse)
 async def root():
-    template_path = os.path.join(os.path.dirname(__file__), "templates", "index.html")
-    with open(template_path) as f:
+    template_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "templates", "index.html")
+    if not os.path.exists(template_path):
+        return HTMLResponse(content="<h1>404: Template Not Found</h1>", status_code=404)
+    with open(template_path, "r") as f:
         return f.read()
+
