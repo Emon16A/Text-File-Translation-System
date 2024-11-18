@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     const languageSelect = document.getElementById("language-select");
     const historyList = document.getElementById("history-list");
     const translatedText = document.getElementById("translated-text");
-    const translationResult = document.getElementById("translation-result");
     const downloadBtn = document.getElementById("download-btn");
+    const uploadBtn = document.getElementById("upload-btn");
 
     // Fetch supported languages
     let languages = {};
@@ -75,6 +75,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.getElementById("upload-form").addEventListener("submit", async function (event) {
         event.preventDefault();
         const formData = new FormData(this);
+        uploadBtn.disabled = true;
+
         try {
             const response = await fetch("/api/upload/", { method: "POST", body: formData });
             if (response.ok) {
@@ -93,6 +95,8 @@ document.addEventListener("DOMContentLoaded", async function () {
             }
         } catch (error) {
             console.error("Error uploading file:", error);
+        } finally {
+            uploadBtn.disabled = false;
         }
     });
 });

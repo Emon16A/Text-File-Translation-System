@@ -1,6 +1,9 @@
 from app.services.websocket_manager import manager  # Import the WebSocket manager
 from app.utils.file_handler import save_file  # Import save_file function
 from app.services.translation_metadata import save_translation_metadata  # Assuming this function exists
+from googletrans import Translator  # Import the translator
+
+translator = Translator()
 
 async def translate_text(file_path, language, session_id, file_name):
     """Translate the content of the file and save it."""
@@ -12,8 +15,16 @@ async def translate_text(file_path, language, session_id, file_name):
         with open(file_path, "r", encoding="utf-8") as file:
             text = file.read()
 
-        # Simulate the translation (you can replace this with actual API call)
-        translated_content = f"Translated [{language}]: {text}"  # Dummy translation
+        # Attempt translation with error handling
+        try:
+            # Translate the text (auto-detect the source language)
+            translated = translator.translate(text, src='auto', dest=language)
+            translated_content = translated.text
+        except Exception as e:
+            # If translation fails, log the error and use the original text
+            print(f"Error occurred during translation: {str(e)}")
+            translated_content = text  # Fallback to original text
+
         new_file_path = f"{file_path}.translated"  # Path for the translated file
 
         # Save the translated content to a new file
